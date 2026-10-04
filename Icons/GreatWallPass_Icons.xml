@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GameInfo>
+	<!-- v1.7 图标：改用原版「长城」改良设施图标。
+	     本机为 CTP 整合版，mod 松散 .dds 多次实测均读不进引擎（见 README 第七节 v1.3~v1.6），
+	     故不再注册自制图集，直接指向原版已打包的贴图槽位（必定可显示）。
+	     原版定义：ICON_IMPROVEMENT_GREAT_WALL = ICON_ATLAS_UNIT_ACTIONS 索引 18。 -->
+	<IconDefinitions>
+		<Row Name="ICON_DISTRICT_GREAT_WALL_PASS" Atlas="ICON_ATLAS_UNIT_ACTIONS" Index="18"/>
+	</IconDefinitions>
+</GameInfo>

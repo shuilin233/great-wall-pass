@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GameInfo>
+	<LocalizedText>
+		<!-- 简体中文 -->
+		<Row Tag="LOC_DISTRICT_GREAT_WALL_PASS_NAME" Language="zh_Hans_CN">
+			<Text>长城关隘</Text>
+		</Row>
+		<Row Tag="LOC_DISTRICT_GREAT_WALL_PASS_DESCRIPTION" Language="zh_Hans_CN">
+			<Text>中国特有的防御区域。不占用人口提供的区域名额，每座城市可建造多个。拥有100点生命值，并对相邻的敌方单位形成控制区。不提供任何产出，被掠夺前必须先削减其生命值。</Text>
+		</Row>
+		<Row Tag="LOC_TRAIT_CIVILIZATION_DISTRICT_GREAT_WALL_PASS_NAME" Language="zh_Hans_CN">
+			<Text>长城关隘</Text>
+		</Row>
+
+		<!-- 百科词条（Civilopedia）：区域页由 Districts 表自动生成，只需提供 HISTORY 章节正文 -->
+		<Row Tag="LOC_PEDIA_DISTRICTS_PAGE_DISTRICT_GREAT_WALL_PASS_CHAPTER_HISTORY_PARA_1" Language="zh_Hans_CN">
+			<Text>长城并非一道孤立的墙，而是一条由关隘、敌楼、烽燧串联起来的防线。关隘扼守山间通道与河谷，是整条长城最险要、也最繁忙的节点：商旅、驿使、戍卒皆须由此出入，因而关城往往兼具堡垒与市集的双重身份。山海关控扼辽西走廊，号称"天下第一关"；居庸关拱卫京畿，嘉峪关则雄踞河西走廊西端。任何一处关隘失守，游牧骑兵便能长驱直入，故历代王朝不惜以重兵驻守。对中原而言，关隘既是刀兵相见的战场，也是茶马互市、使节往来的孔道——它是抵御外敌的血肉长城，也是连接内外的门户。</Text>
+		</Row>
+
+		<!-- English (fallback) -->
+		<Row Tag="LOC_DISTRICT_GREAT_WALL_PASS_NAME" Language="en_US">
+			<Text>Great Wall Pass</Text>
+		</Row>
+		<Row Tag="LOC_DISTRICT_GREAT_WALL_PASS_DESCRIPTION" Language="en_US">
+			<Text>A Chinese unique defensive district. Does not consume a district slot from population and can be built multiple times per city. Has 100 Hit Points and exerts zone of control on adjacent enemy units. Provides no yields; its hit points must be reduced before it can be pillaged.</Text>
+		</Row>
+		<Row Tag="LOC_TRAIT_CIVILIZATION_DISTRICT_GREAT_WALL_PASS_NAME" Language="en_US">
+			<Text>Great Wall Pass</Text>
+		</Row>
+
+		<!-- Civilopedia entry (auto-generated district page; only the HISTORY paragraph is needed) -->
+		<Row Tag="LOC_PEDIA_DISTRICTS_PAGE_DISTRICT_GREAT_WALL_PASS_CHAPTER_HISTORY_PARA_1" Language="en_US">
+			<Text>The Great Wall was never a single wall, but a chain of passes, watchtowers and beacon fires strung together across mountains and valleys. The passes commanded every gap through which a road or river must run, making them the most vital and busiest links of the whole line: merchants, couriers and garrison troops all had to pass through, so a frontier pass was at once fortress and marketplace. Shanhaiguan guarded the Liaoxi corridor and was hailed as the First Pass Under Heaven; Juyongguan shielded the capital, while Jiayuguan anchored the western end of the Hexi Corridor. Lose a single pass and nomad cavalry could ride straight into the heartland—which is why dynasty after dynasty garrisoned them so heavily. To the Central Plains the passes were both battlefields and gateways of trade and diplomacy: a wall of blood and iron against invaders, and a door joining China to the world beyond.</Text>
+		</Row>
+	</LocalizedText>
+</GameInfo>

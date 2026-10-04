@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<AssetObjects..GameDependencyData>
+	<ID>
+		<name text="GreatWallPass"/>
+		<id text="927a4c16-2ee1-47c0-8800-64a3b7ef3de9"/>
+	</ID>
+	<RequiredGameArtIDs/>
+	<SystemDependencies>
+		<Element>
+			<ConsumerName text="Audio"/>
+			<ArtDefDependencyPaths>
+				<Element text="Civilizations.artdef"/>
+				<Element text="Districts.artdef"/>
+				<Element text="Units.artdef"/>
+				<Element text="Leaders.artdef"/>
+				<Element text="Landmarks.artdef"/>
+				<Element text="StrategicView.artdef"/>
+				<Element text="Cultures.artdef"/>
+				<Element text="VFX.artdef"/>
+				<Element text="Unit_Bins.artdef"/>
+				<Element text="CityGenerators.artdef"/>
+				<Element text="Buildings.artdef"/>
+			</ArtDefDependencyPaths>
+		</Element>
+		<Element>
+			<ConsumerName text="Landmarks"/>
+			<ArtDefDependencyPaths>
+				<Element text="Landmarks.artdef"/>
+				<Element text="Improvements.artdef"/>
+				<Element text="CityGenerators.artdef"/>
+				<Element text="Resources.artdef"/>
+				<Element text="Cultures.artdef"/>
+				<Element text="Buildings.artdef"/>
+				<Element text="Civilizations.artdef"/>
+				<Element text="StrategicView.artdef"/>
+				<Element text="Clutter.artdef"/>
+				<Element text="Features.artdef"/>
+				<Element text="Districts.artdef"/>
+			</ArtDefDependencyPaths>
+		</Element>
+		<Element>
+			<ConsumerName text="Features"/>
+			<ArtDefDependencyPaths>
+				<Element text="Features.artdef"/>
+				<Element text="StrategicView.artdef"/>
+				<Element text="Clutter.artdef"/>
+				<Element text="Landmarks.artdef"/>
+				<Element text="Buildings.artdef"/>
+				<Element text="CityGenerators.artdef"/>
+				<Element text="Cultures.artdef"/>
+				<Element text="Civilizations.artdef"/>
+				<Element text="Districts.artdef"/>
+			</ArtDefDependencyPaths>
+		</Element>
+		<Element>
+			<ConsumerName text="StrategicView_Sprite"/>
+			<ArtDefDependencyPaths>
+				<Element text="StrategicView.artdef"/>
+				<Element text="Buildings.artdef"/>
+				<Element text="Districts.artdef"/>
+				<Element text="Landmarks.artdef"/>
+				<Element text="CityGenerators.artdef"/>
+				<Element text="Cultures.artdef"/>
+				<Element text="Civilizations.artdef"/>
+			</ArtDefDependencyPaths>
+		</Element>
+		<Element>
+			<ConsumerName text="WorldView_Translate"/>
+			<ArtDefDependencyPaths>
+				<Element text="Districts.artdef"/>
+				<Element text="Buildings.artdef"/>
+				<Element text="Features.artdef"/>
+				<Element text="Improvements.artdef"/>
+				<Element text="Civilizations.artdef"/>
+				<Element text="Resources.artdef"/>
+				<Element text="Landmarks.artdef"/>
+				<Element text="StrategicView.artdef"/>
+				<Element text="Clutter.artdef"/>
+				<Element text="CityGenerators.artdef"/>
+				<Element text="Cultures.artdef"/>
+			</ArtDefDependencyPaths>
+		</Element>
+		<Element>
+			<ConsumerName text="Resources"/>
+			<ArtDefDependencyPaths>
+				<Element text="Resources.artdef"/>
+				<Element text="Clutter.artdef"/>
+				<Element text="Features.artdef"/>
+				<Element text="StrategicView.artdef"/>
+				<Element text="Landmarks.artdef"/>
+				<Element text="Buildings.artdef"/>
+				<Element text="CityGenerators.artdef"/>
+				<Element text="Cultures.artdef"/>
+				<Element text="Civilizations.artdef"/>
+				<Element text="Districts.artdef"/>
+			</ArtDefDependencyPaths>
+		</Element>
+	</SystemDependencies>
+	<ArtDefDependencies>
+		<Element>
+			<ArtDefPath text="Districts.artdef"/>
+			<ArtDefDependencyPaths>
+				<Element text="Landmarks.artdef"/>
+				<Element text="StrategicView.artdef"/>
+				<Element text="Districts.artdef"/>
+			</ArtDefDependencyPaths>
+		</Element>
+	</ArtDefDependencies>
+	<LibraryDependencies/>
+</AssetObjects..GameDependencyData>

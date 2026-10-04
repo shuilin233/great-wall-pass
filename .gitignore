@@ -1,0 +1,6 @@
+# 操作系统 / 编辑器垃圾
+Thumbs.db
+Desktop.ini
+.DS_Store
+*.log
+*.tmp

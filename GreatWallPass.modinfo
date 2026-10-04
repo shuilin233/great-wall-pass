@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Mod id="7ae2e0ba-27ed-4217-af93-72c7111a06cd" version="1">
+	<Properties>
+		<Name>长城关隘 Great Wall Pass</Name>
+		<Teaser>为中国新增独特防御区域「长城关隘」：不占人口名额、可多次建造、100 点生命值并自带控制区。</Teaser>
+		<Description>为中国新增独特防御区域「长城关隘」：不占人口区域名额、每城可建多个、100点生命值、自带控制区(ZOC)，无任何产出加成。军营、长城改良设施及其他所有内容均不受影响（纯加法mod）。</Description>
+		<Authors>26792 + Claude</Authors>
+		<Created>2026-10-03</Created>
+		<CreatedBy>26792 + Claude</CreatedBy>
+		<CompatibleVersions>2.0</CompatibleVersions>
+	</Properties>
+	<FrontEndActions>
+		<UpdateDatabase id="GreatWallPass_Config">
+			<File>Config/GreatWallPass_Config.xml</File>
+		</UpdateDatabase>
+		<UpdateIcons id="GreatWallPass_Icons_Frontend">
+			<File>Icons/GreatWallPass_Icons.xml</File>
+		</UpdateIcons>
+		<UpdateText id="GreatWallPass_Text_Frontend">
+			<File>Text/GreatWallPass_Text.xml</File>
+		</UpdateText>
+	</FrontEndActions>
+	<InGameActions>
+		<UpdateDatabase id="GreatWallPass_Gameplay">
+			<File>Data/GreatWallPass_Gameplay.xml</File>
+		</UpdateDatabase>
+		<UpdateIcons id="GreatWallPass_Icons">
+			<File>Icons/GreatWallPass_Icons.xml</File>
+		</UpdateIcons>
+		<UpdateText id="GreatWallPass_Text">
+			<File>Text/GreatWallPass_Text.xml</File>
+		</UpdateText>
+		<UpdateArt id="GreatWallPass_Art">
+			<File>GreatWallPass.dep</File>
+		</UpdateArt>
+	</InGameActions>
+	<Files>
+		<File>Data/GreatWallPass_Gameplay.xml</File>
+		<File>Icons/GreatWallPass_Icons.xml</File>
+		<File>Text/GreatWallPass_Text.xml</File>
+		<File>GreatWallPass.dep</File>
+		<File>Config/GreatWallPass_Config.xml</File>
+		<File>ArtDefs/Districts.artdef</File>
+	</Files>
+</Mod>

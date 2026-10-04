@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GameInfo>
+	<!-- 注册新类型 -->
+	<Types>
+		<Row Type="DISTRICT_GREAT_WALL_PASS" Kind="KIND_DISTRICT"/>
+		<Row Type="TRAIT_CIVILIZATION_DISTRICT_GREAT_WALL_PASS" Kind="KIND_TRAIT"/>
+	</Types>
+
+	<!-- 区域本体：参考 DISTRICT_ENCAMPMENT / DISTRICT_NEIGHBORHOOD 的字段组合 -->
+	<Districts>
+		<Row DistrictType="DISTRICT_GREAT_WALL_PASS"
+			 Name="LOC_DISTRICT_GREAT_WALL_PASS_NAME"
+			 Description="LOC_DISTRICT_GREAT_WALL_PASS_DESCRIPTION"
+			 PrereqTech="TECH_MASONRY"
+			 PlunderType="NO_PLUNDER"
+			 AdvisorType="ADVISOR_CONQUEST"
+			 Cost="40"
+			 CostProgressionModel="COST_PROGRESSION_GAME_PROGRESS"
+			 CostProgressionParam1="1000"
+			 Maintenance="0"
+			 RequiresPlacement="true"
+			 RequiresPopulation="false"
+			 OnePerCity="false"
+			 Aqueduct="false"
+			 NoAdjacentCity="false"
+			 InternalOnly="false"
+			 ZOC="true"
+			 HitPoints="100"
+			 CaptureRemovesBuildings="false"
+			 CaptureRemovesCityDefenses="false"
+			 MilitaryDomain="NO_DOMAIN"
+			 Appeal="-1"
+			 CityStrengthModifier="0"
+			 TraitType="TRAIT_CIVILIZATION_DISTRICT_GREAT_WALL_PASS"/>
+	</Districts>
+
+	<!-- 特性：绑定给中国 -->
+	<Traits>
+		<Row TraitType="TRAIT_CIVILIZATION_DISTRICT_GREAT_WALL_PASS"
+			 Name="LOC_TRAIT_CIVILIZATION_DISTRICT_GREAT_WALL_PASS_NAME"/>
+	</Traits>
+	<CivilizationTraits>
+		<Row CivilizationType="CIVILIZATION_CHINA"
+			 TraitType="TRAIT_CIVILIZATION_DISTRICT_GREAT_WALL_PASS"/>
+	</CivilizationTraits>
+
+	<!-- AI：让 AI 控制的中国也倾向建造长城关隘。
+	     机制与官方高卢（奥皮杜姆）/城邦相同：AiLists 的 LeaderType 栏可挂文明特性，
+	     System="Districts" 表示这是"该玩家倾向建造的区域"清单。 -->
+	<AiListTypes>
+		<Row ListType="GreatWallPassFavoredDistricts"/>
+	</AiListTypes>
+	<AiLists>
+		<Row ListType="GreatWallPassFavoredDistricts"
+			 LeaderType="TRAIT_CIVILIZATION_DISTRICT_GREAT_WALL_PASS"
+			 System="Districts"/>
+	</AiLists>
+	<AiFavoredItems>
+		<Row ListType="GreatWallPassFavoredDistricts"
+			 Item="DISTRICT_GREAT_WALL_PASS" Favored="true"/>
+	</AiFavoredItems>
+</GameInfo>
