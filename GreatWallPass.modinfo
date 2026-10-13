@@ -2,8 +2,8 @@
 <Mod id="7ae2e0ba-27ed-4217-af93-72c7111a06cd" version="1">
 	<Properties>
 		<Name>长城关隘 Great Wall Pass</Name>
-		<Teaser>为中国新增独特防御区域「长城关隘」：不占人口名额、可多次建造、100 点生命值并自带控制区。</Teaser>
-		<Description>为中国新增独特防御区域「长城关隘」：不占人口区域名额、每城可建多个、100点生命值、自带控制区(ZOC)，无任何产出加成。军营、长城改良设施及其他所有内容均不受影响（纯加法mod）。</Description>
+		<Teaser>为中国新增独特防御区域「长城关隘」：不占人口名额、每城可建多个、100 点生命值、自带控制区，并会与长城连成一条线。</Teaser>
+		<Description>为中国文明新增独特防御区域「长城关隘」：不占人口区域名额、每城可建多个、拥有 100 点生命值并自带控制区(ZOC)。关隘完工后会与相邻的原版长城在视觉上连成一条线，并按相邻的长城 / 关隘获得金币与文化加成。军营、市中心、城墙、原版长城改良及其他所有内容均不受影响（纯加法 mod，老存档直接可用）。</Description>
 		<Authors>26792 + Claude</Authors>
 		<Created>2026-10-03</Created>
 		<CreatedBy>26792 + Claude</CreatedBy>
@@ -21,6 +21,9 @@
 		</UpdateText>
 	</FrontEndActions>
 	<InGameActions>
+		<AddGameplayScripts id="GreatWallPass_Scripts">
+			<File>Lua/GreatWallPass_Wall.lua</File>
+		</AddGameplayScripts>
 		<UpdateDatabase id="GreatWallPass_Gameplay">
 			<File>Data/GreatWallPass_Gameplay.xml</File>
 		</UpdateDatabase>
@@ -41,5 +44,12 @@
 		<File>GreatWallPass.dep</File>
 		<File>Config/GreatWallPass_Config.xml</File>
 		<File>ArtDefs/Districts.artdef</File>
+		<File>ArtDefs/Landmarks.artdef</File>
+		<File>ArtDefs/Improvements.artdef</File>
+		<File>Lua/GreatWallPass_Wall.lua</File>
+		<File>Platforms/Windows/BLPs/GWP_Gate.blp</File>
+		<File>Mod.Art.xml</File>
+		<File>Platforms/Windows/BLPs/SHARED_DATA/TEXTURE_DiffuseTint_TEXTURE_GWP_Gate_A_null</File>
+		<File>Platforms/Windows/BLPs/SHARED_DATA/TEXTURE_ProceduralNoiseTexture2D_0x304656c5</File>
 	</Files>
 </Mod>

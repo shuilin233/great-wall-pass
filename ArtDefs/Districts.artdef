@@ -32,7 +32,7 @@
 							<m_Fields>
 								<m_Values>
 									<Element class="AssetObjects..ArtDefReferenceValue">
-										<m_ElementName text="DISTRICT_ENCAMPMENT" />
+										<m_ElementName text="DISTRICT_GREAT_WALL_PASS" />
 										<m_RootCollectionName text="Districts" />
 										<m_ArtDefPath text="Landmarks.artdef" />
 										<m_CollectionIsLocked>true</m_CollectionIsLocked>

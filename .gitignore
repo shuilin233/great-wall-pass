@@ -4,3 +4,7 @@ Desktop.ini
 .DS_Store
 *.log
 *.tmp
+
+# artdef 实验备份（工作产物，不入库）
+*.control_backup
+*.ourasset_backup

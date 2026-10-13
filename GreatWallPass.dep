@@ -37,6 +37,13 @@
 				<Element text="Features.artdef"/>
 				<Element text="Districts.artdef"/>
 			</ArtDefDependencyPaths>
+			<LibraryDependencies>
+				<Element text="CityBuildings"/>
+				<Element text="TileBase"/>
+				<Element text="RouteDecalMaterial"/>
+				<Element text="DynamicGeometry"/>
+			</LibraryDependencies>
+			<LoadsLibraries>true</LoadsLibraries>
 		</Element>
 		<Element>
 			<ConsumerName text="Features"/>
@@ -95,6 +102,14 @@
 				<Element text="Districts.artdef"/>
 			</ArtDefDependencyPaths>
 		</Element>
+		<Element>
+			<ConsumerName text="DynamicGeometry"/>
+			<ArtDefDependencyPaths/>
+			<LibraryDependencies>
+				<Element text="DynamicGeometry"/>
+			</LibraryDependencies>
+			<LoadsLibraries>true</LoadsLibraries>
+		</Element>
 	</SystemDependencies>
 	<ArtDefDependencies>
 		<Element>
@@ -105,6 +120,29 @@
 				<Element text="Districts.artdef"/>
 			</ArtDefDependencyPaths>
 		</Element>
+		<!-- v2.1-rc2：Landmarks.artdef 依赖（照抄 Byzantium_Gaul.dep，去掉本 mod 用不到的 Buildings） -->
+		<Element>
+			<ArtDefPath text="Landmarks.artdef"/>
+			<ArtDefDependencyPaths>
+				<Element text="CityGenerators.artdef"/>
+				<Element text="Civilizations.artdef"/>
+				<Element text="Landmarks.artdef"/>
+				<Element text="Cultures.artdef"/>
+			</ArtDefDependencyPaths>
+		</Element>
+		<Element>
+			<ArtDefPath text="Improvements.artdef"/>
+			<ArtDefDependencyPaths>
+				<Element text="Walls.artdef"/>
+			</ArtDefDependencyPaths>
+		</Element>
 	</ArtDefDependencies>
-	<LibraryDependencies/>
+		<LibraryDependencies>
+		<Element>
+			<LibraryName text="TileBase"/>
+			<PackageDependencies>
+				<Element text="GWP_Gate.blp"/>
+			</PackageDependencies>
+		</Element>
+	</LibraryDependencies>
 </AssetObjects..GameDependencyData>

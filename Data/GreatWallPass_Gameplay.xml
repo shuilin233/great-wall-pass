@@ -4,6 +4,7 @@
 	<Types>
 		<Row Type="DISTRICT_GREAT_WALL_PASS" Kind="KIND_DISTRICT"/>
 		<Row Type="TRAIT_CIVILIZATION_DISTRICT_GREAT_WALL_PASS" Kind="KIND_TRAIT"/>
+		<Row Type="IMPROVEMENT_GWP_LINK" Kind="KIND_IMPROVEMENT"/>
 	</Types>
 
 	<!-- 区域本体：参考 DISTRICT_ENCAMPMENT / DISTRICT_NEIGHBORHOOD 的字段组合 -->
@@ -12,7 +13,8 @@
 			 Name="LOC_DISTRICT_GREAT_WALL_PASS_NAME"
 			 Description="LOC_DISTRICT_GREAT_WALL_PASS_DESCRIPTION"
 			 PrereqTech="TECH_MASONRY"
-			 PlunderType="NO_PLUNDER"
+			 PlunderType="PLUNDER_GOLD"
+			 PlunderAmount="50"
 			 AdvisorType="ADVISOR_CONQUEST"
 			 Cost="40"
 			 CostProgressionModel="COST_PROGRESSION_GAME_PROGRESS"
@@ -34,6 +36,29 @@
 			 TraitType="TRAIT_CIVILIZATION_DISTRICT_GREAT_WALL_PASS"/>
 	</Districts>
 
+
+
+	<!-- 邻近收益：每相邻 1 段长城 +2 金（砌石后）/ +2 文化（城堡后）；
+	     v2.1 起另加：每相邻 1 座关隘 +1 金（砌石后）/ +1 文化（城堡后）——关隘连片互市。
+	     实现要点：必须在本文件内**自定义** Adjacency_YieldChanges 行。
+	     实测（2026-10-10）在本机整合版上，区域侧**引用**原版的 GreatWall_Gold /
+	     GreatWall_Culture 行不生效（显示 0），改成自定义行才正常。
+	     代价：数值固定，无法自动跟随其他「长城加强」类 Mod，需手动同步。
+	     数值对齐风云变幻下长城改良的邻近值（基础版长城为 1）。
+	     关隘互邻取长城的一半（+1），改数值就改下面两行的 YieldChange。 -->
+	<Adjacency_YieldChanges>
+		<Row ID="GWP_Adj_Gold" Description="Placeholder" YieldType="YIELD_GOLD" YieldChange="2" TilesRequired="1" AdjacentImprovement="IMPROVEMENT_GREAT_WALL" PrereqTech="TECH_MASONRY"/>
+		<Row ID="GWP_Adj_Culture" Description="Placeholder" YieldType="YIELD_CULTURE" YieldChange="2" TilesRequired="1" AdjacentImprovement="IMPROVEMENT_GREAT_WALL" PrereqTech="TECH_CASTLES"/>
+		<Row ID="GWP_Adj_Pass_Gold" Description="Placeholder" YieldType="YIELD_GOLD" YieldChange="1" TilesRequired="1" AdjacentDistrict="DISTRICT_GREAT_WALL_PASS" PrereqTech="TECH_MASONRY"/>
+		<Row ID="GWP_Adj_Pass_Culture" Description="Placeholder" YieldType="YIELD_CULTURE" YieldChange="1" TilesRequired="1" AdjacentDistrict="DISTRICT_GREAT_WALL_PASS" PrereqTech="TECH_CASTLES"/>
+	</Adjacency_YieldChanges>
+	<District_Adjacencies>
+		<Row DistrictType="DISTRICT_GREAT_WALL_PASS" YieldChangeId="GWP_Adj_Gold"/>
+		<Row DistrictType="DISTRICT_GREAT_WALL_PASS" YieldChangeId="GWP_Adj_Culture"/>
+		<Row DistrictType="DISTRICT_GREAT_WALL_PASS" YieldChangeId="GWP_Adj_Pass_Gold"/>
+		<Row DistrictType="DISTRICT_GREAT_WALL_PASS" YieldChangeId="GWP_Adj_Pass_Culture"/>
+	</District_Adjacencies>
+
 	<!-- 特性：绑定给中国 -->
 	<Traits>
 		<Row TraitType="TRAIT_CIVILIZATION_DISTRICT_GREAT_WALL_PASS"
@@ -43,6 +68,31 @@
 		<Row CivilizationType="CIVILIZATION_CHINA"
 			 TraitType="TRAIT_CIVILIZATION_DISTRICT_GREAT_WALL_PASS"/>
 	</CivilizationTraits>
+
+	<!-- ===== 视觉联动改良（纯视觉，玩家不可操作） =====
+	     关隘是「区域」，永远进不了长城的地块集合，所以动态墙画不到关隘格。
+	     GreatWallPass_Wall.lua 会在关隘格补一段改良，让动态墙把关隘当成长城节点。
+	     这一段改良**故意做成纯视觉**：
+	       - Buildable 默认 0（不写）→ 建造者菜单里不出现
+	       - Removable 默认 1 → 显式改成 0，彻底断掉"移除改良设施"这条路
+	       - 不写任何 YieldChange → 关隘格不白吃长城改良的收益
+	       - 不写 TraitType → 不做成中国专属改良
+	     美术走自建 ArtDefs/Improvements.artdef 的 IMPROVEMENT_GWP_LINK，
+	     它 Xref 到原版 Walls.artdef/WallSet/GreatWallSet —— 所以画出来就是长城本身。
+	     注意：必须放在 <Traits> 之后（FK 约束）。 -->
+	<Improvements>
+		<Row ImprovementType="IMPROVEMENT_GWP_LINK"
+			 Name="LOC_IMPROVEMENT_GWP_LINK_NAME"
+			 Description="LOC_IMPROVEMENT_GWP_LINK_DESCRIPTION"
+			 Icon="ICON_IMPROVEMENT_GREAT_WALL"
+			 PlunderType="NO_PLUNDER"
+			 Buildable="false"
+			 Removable="false"
+			 Capturable="false"
+			 DefenseModifier="0"
+			 GrantFortification="0"
+			 Appeal="-1"/>
+	</Improvements>
 
 	<!-- AI：让 AI 控制的中国也倾向建造长城关隘。
 	     机制与官方高卢（奥皮杜姆）/城邦相同：AiLists 的 LeaderType 栏可挂文明特性，
@@ -59,4 +109,40 @@
 		<Row ListType="GreatWallPassFavoredDistricts"
 			 Item="DISTRICT_GREAT_WALL_PASS" Favored="true"/>
 	</AiFavoredItems>
+	<!-- ===== 视觉联动改良（纯视觉，玩家不可操作） =====
+	     关隘是「区域」，永远进不了长城的地块集合，所以动态墙画不到关隘格。
+	     GreatWallPass_Wall.lua 会在关隘格补一段改良，让动态墙把关隘当成长城节点。
+	     这一段改良**故意做成纯视觉**：
+	       - 不写 Buildable（建造者菜单里不出现，也就没有"移除"这条路）
+	       - 不写 YieldChange（关隘格不白吃长城改良的收益）
+	       - 不写 TraitType（不做成中国专属改良）
+	       - Removable="false" 让游戏侧彻底断掉"移除改良设施"
+	     美术走自建 ArtDefs/Improvements.artdef 的 IMPROVEMENT_GWP_LINK，
+	     它 Xref 到原版 Walls.artdef/WallSet/GreatWallSet —— 所以画出来就是长城本身。 -->
+
+	<!-- ===== 建造者加速区域：已彻底移除（v1.04 的遗留）=====
+	     这一段是 1.04 那次尝试的残留：TRAIT_GWP_BUILDER_BOOST 挂
+	     MODIFIER_PLAYER_CITIES_ADJUST_DISTRICT_PRODUCTION（Amount=20，DistrictType=关隘），
+	     效果是「城里建造关隘时 +20% 产能」。
+
+	     为什么删：
+	       1) 对老存档完全无效 —— CivilizationTraits 开局固化，1.04 才加的特性永远挂不上。
+	       2) 但对**新开的局**会真生效，等于白送 +20% 建造速度。同一个 mod 两种行为，不可接受。
+	       3) 它和后来真正做成的「关隘墙体」视觉联动没有任何关系。
+
+	     如果将来还想要加速功能，去看 _walllink_实验档案.md 第 33 节：
+	     引擎能把粒度做到「奇观 / 区域」两级，做不到「哪一种区域」，所以「只加速关隘」
+	     在引擎侧不可能；一旦启用就是玩家全局，会明显超模。 -->
+	<Improvement_ValidTerrains>
+		<Row ImprovementType="IMPROVEMENT_GWP_LINK" TerrainType="TERRAIN_DESERT"/>
+		<Row ImprovementType="IMPROVEMENT_GWP_LINK" TerrainType="TERRAIN_DESERT_HILLS"/>
+		<Row ImprovementType="IMPROVEMENT_GWP_LINK" TerrainType="TERRAIN_GRASS"/>
+		<Row ImprovementType="IMPROVEMENT_GWP_LINK" TerrainType="TERRAIN_GRASS_HILLS"/>
+		<Row ImprovementType="IMPROVEMENT_GWP_LINK" TerrainType="TERRAIN_PLAINS"/>
+		<Row ImprovementType="IMPROVEMENT_GWP_LINK" TerrainType="TERRAIN_PLAINS_HILLS"/>
+		<Row ImprovementType="IMPROVEMENT_GWP_LINK" TerrainType="TERRAIN_TUNDRA"/>
+		<Row ImprovementType="IMPROVEMENT_GWP_LINK" TerrainType="TERRAIN_TUNDRA_HILLS"/>
+		<Row ImprovementType="IMPROVEMENT_GWP_LINK" TerrainType="TERRAIN_SNOW"/>
+		<Row ImprovementType="IMPROVEMENT_GWP_LINK" TerrainType="TERRAIN_SNOW_HILLS"/>
+	</Improvement_ValidTerrains>
 </GameInfo>
